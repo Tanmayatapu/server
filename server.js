@@ -26,7 +26,7 @@
 
 
 import express from "express";
-import "dotenv/config";
+//import "dotenv/config";
 import cors from "cors";
 import connectDB from "./configs/db.js";
 import { clerkMiddleware} from '@clerk/express';
@@ -36,13 +36,13 @@ import hotelRouter from "./routes/hotelRoutes.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import roomRouter from "./routes/roomRoutes.js";
 import bookingRouter from "./routes/bookingRoutes.js";
-
+import dotenv from "dotenv"
 const app = express();
 // app.use(cors());
-
+ dotenv.config()
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.CORS_ORIGIN,
   credentials: true
 }));
 
